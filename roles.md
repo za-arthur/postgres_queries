@@ -18,7 +18,6 @@ WITH RECURSIVE x AS
          roleid::regrole AS role,
          member::regrole || ' -> ' || roleid::regrole AS path
   FROM pg_auth_members AS m
-  WHERE roleid > 16384
   UNION ALL
   SELECT x.member::regrole,
          m.roleid::regrole,
